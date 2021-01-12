@@ -16,15 +16,13 @@ type Input struct {
 func main() {
 	var input Input
 	fmt.Println("Args:", os.Args[1])
-	var temp string = os.Args[1]
-	b, err := json.Marshal(temp)
+	//var temp string = `{"environment":"development","app":"golang-tests"}`
+
+	err := json.Unmarshal([]byte(os.Args[1]), &input)
 	if err != nil {
-		fmt.Println("ERROR:", err)
+		fmt.Println("Unmarshal ERROR:", err)
 	}
-
-	json.Unmarshal(b, &input)
-
-	fmt.Println(input)
+	fmt.Println("Input:", input)
 
 	output, err := ingestInput(input)
 	if err != nil {
