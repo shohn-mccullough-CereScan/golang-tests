@@ -23,6 +23,8 @@ func main() {
 
 	json.Unmarshal(b, &input)
 
+	fmt.Println(input)
+
 	output, err := ingestInput(input)
 	if err != nil {
 		fmt.Println("main() Ending Error:", err)
