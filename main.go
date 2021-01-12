@@ -15,6 +15,7 @@ type Input struct {
 
 func main() {
 	var input Input
+	fmt.Println("Args:", os.Args[0])
 	b, err := json.Marshal(os.Args[0])
 	if err != nil {
 		fmt.Println("ERROR:", err)
